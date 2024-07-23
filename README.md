@@ -87,10 +87,12 @@ Chart Structure:
 
   Pushing changes to your repository will trigger the deployment pipeline configured in your CI/CD system. This pipeline will automatically deploy the updated configuration to your Kubernetes cluster.
 
-  Kubernetes Cluster:
+  Kubernetes Cluster: (Will be added soon)
 
   Kubernetes URL - 
+  
   How to access you cluster - 
+  
   How to check the logs - 
 
 **Branching Strategy:**
