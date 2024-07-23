@@ -1,4 +1,4 @@
-Generic Helm Chart for Python-based ML API & Branching Strategy 
+Generic Helm Chart for Python-based ML API,  Branching Strategy $ How to handle Secrets during deployments
 
 This repository contains a generic Helm chart designed to deploy a Python-based Machine Learning (ML) API and the Branching Strategy. The chart is configured to support three environments: development, staging, and production. This document provides step-by-step instructions on how ML engineers can reuse this chart for their own projects.
 
@@ -95,6 +95,10 @@ Chart Structure:
   
   How to check the logs - 
 
+
+
+
+
 **Branching Strategy:**
 
   To manage Helm charts repository, a clear and effective branching strategy is imporant to maintaining stability, promoting changes, and to support various environments. Here’s a recommended branching strategy for your 
@@ -126,3 +130,36 @@ Release Branches:
 Hotfix Branches:
 
   hotfix/<issue>: For urgent fixes that need to be applied to the production environment, create a hotfix branch from main. Once the hotfix is complete, merge it into main and develop (or the relevant environment branches).
+
+
+
+
+
+Handling secrets in Deployment:
+
+  Handling secrets securely during deployment is crucial for maintaining the security and integrity of your applications.
+
+  Storing secrets as unencrypted are vulnerable to unauthorized access, increasing the risk of data breaches if exposed through compromised systems, logs, or version control.
+
+  1, One of the tool used for storing and accessing the kubernetes secret securly is Sealed Secrets operator. 
+
+   The Sealed Secrets operator is a tool for managing and securing Kubernetes secrets. It allows you to encrypt Kubernetes secrets so that they can be safely stored in version control systems, like Git, without exposing        their contents. The operator automates the process of sealing and unsealing secrets, providing a secure way to handle sensitive data in Kubernetes environments.
+      
+    Encryption: Sealed Secrets encrypt the contents of a Kubernetes Secret using a public key. This ensures that the sensitive data remains confidential even if the sealed secret is stored in a public repository.
+    Decryption: The Kubernetes controller (Sealed Secrets Controller) uses a private key to decrypt the sealed secret and create a Kubernetes Secret in the cluster.
+    Sealed Secrets can be safely stored in git because they are encrypted. This allows you to manage secrets alongside your application code and configuration.
+    Sealed Secrets can be created and applied using standard kubectl commands. The process of sealing and unsealing secrets is automated by the Sealed Secrets Controller running in the Kubernetes cluster.
+    It integrates seamlessly with Kubernetes, allowing you to use Sealed Secrets just like regular Kubernetes Secrets. They are managed through Kubernetes manifests and deployed with standard Kubernetes tools.
+
+ 2, Storing the secrets in Secret Manager in Cloud platform.
+
+    Secret Manager is one the AWS object to store and access secrets securly. Other cloud platform like Azure and Gooole cloud also have the one object to handle secrets.
+    There are few kubernetes operator like external-secrets-operator to access the secrets from cloud platforms
+    It make it easly to store the secrets in Cloud platform and access it using kubernetes secrets during deployments.
+
+There there also few other methods to store and acess secrets in kubernetes securly.
+    
+
+
+
+
