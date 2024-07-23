@@ -141,21 +141,21 @@ Handling secrets in Deployment:
 
   Storing secrets as unencrypted are vulnerable to unauthorized access, increasing the risk of data breaches if exposed through compromised systems, logs, or version control.
 
-  1, One of the tool used for storing and accessing the kubernetes secret securly is Sealed Secrets operator. 
+1, One of the tool used for storing and accessing the kubernetes secret securly is Sealed Secrets operator. 
 
    The Sealed Secrets operator is a tool for managing and securing Kubernetes secrets. It allows you to encrypt Kubernetes secrets so that they can be safely stored in version control systems, like Git, without exposing        their contents. The operator automates the process of sealing and unsealing secrets, providing a secure way to handle sensitive data in Kubernetes environments.
       
-    Encryption: Sealed Secrets encrypt the contents of a Kubernetes Secret using a public key. This ensures that the sensitive data remains confidential even if the sealed secret is stored in a public repository.
-    Decryption: The Kubernetes controller (Sealed Secrets Controller) uses a private key to decrypt the sealed secret and create a Kubernetes Secret in the cluster.
-    Sealed Secrets can be safely stored in git because they are encrypted. This allows you to manage secrets alongside your application code and configuration.
-    Sealed Secrets can be created and applied using standard kubectl commands. The process of sealing and unsealing secrets is automated by the Sealed Secrets Controller running in the Kubernetes cluster.
-    It integrates seamlessly with Kubernetes, allowing you to use Sealed Secrets just like regular Kubernetes Secrets. They are managed through Kubernetes manifests and deployed with standard Kubernetes tools.
+  Encryption: Sealed Secrets encrypt the contents of a Kubernetes Secret using a public key. This ensures that the sensitive data remains confidential even if the sealed secret is stored in a public repository.
+  Decryption: The Kubernetes controller (Sealed Secrets Controller) uses a private key to decrypt the sealed secret and create a Kubernetes Secret in the cluster.
+  Sealed Secrets can be safely stored in git because they are encrypted. This allows you to manage secrets alongside your application code and configuration.
+  Sealed Secrets can be created and applied using standard kubectl commands. The process of sealing and unsealing secrets is automated by the Sealed Secrets Controller running in the Kubernetes cluster.
+  It integrates seamlessly with Kubernetes, allowing you to use Sealed Secrets just like regular Kubernetes Secrets. They are managed through Kubernetes manifests and deployed with standard Kubernetes tools.
 
  2, Storing the secrets in Secret Manager in Cloud platform.
 
-    Secret Manager is one the AWS object to store and access secrets securly. Other cloud platform like Azure and Gooole cloud also have the one object to handle secrets.
-    There are few kubernetes operator like external-secrets-operator to access the secrets from cloud platforms
-    It make it easly to store the secrets in Cloud platform and access it using kubernetes secrets during deployments.
+  Secret Manager is one the AWS object to store and access secrets securly. Other cloud platform like Azure and Gooole cloud also have the one object to handle secrets.
+  There are few kubernetes operator like external-secrets-operator to access the secrets from cloud platforms
+  It make it easly to store the secrets in Cloud platform and access it using kubernetes secrets during deployments.
 
 There there also few other methods to store and acess secrets in kubernetes securly.
     
