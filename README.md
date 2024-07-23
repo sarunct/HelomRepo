@@ -116,7 +116,7 @@ Environment-Specific Branches:
 
 Feature Branches:
 
-  feature/<feature-name>: Create a new branch for each feature or change you’re working on. These branches are based off of develop or the relevant environment branch, and are merged back into develop or the environment 
+  feature/<feature-name>: Create a new branch for each feature or change you’re working on. These branches are based on the develop or the relevant environment branch, and are merged back into develop or the environment 
   branch after the feature is complete and tested.
   
 Release Branches:
