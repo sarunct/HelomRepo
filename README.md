@@ -37,7 +37,7 @@ Each file allows for environment-specific configurations, making it easier to ma
 
 It also simplifies the deployment process by allowing engineers to switch between environments without modifying the core Helm chart, just by selecting the appropriate values file.
 
-How to use the chart to deploy your ML API:
+**How to use the chart to deploy your ML API:**
 
   Deployment Process:
   1, To deploy the Python-based ML API using this Helm chart, follow these steps:
@@ -68,7 +68,7 @@ How to use the chart to deploy your ML API:
       Replicas - Set the number of replicas for scaling.
       Resource Limits - Define CPU and memory limits.
 
-Deployment Process:
+**Deployment Process:**
 
 Once you have made changes to the values file, push the changes to your own repository to deploy your API in Kubernetes cluster.
 
@@ -82,7 +82,7 @@ Once you have made changes to the values file, push the changes to your own repo
 
     git push origin <branch_name>
 
-Triggering Deployment Pipeline:
+**Triggering Deployment Pipeline:**
 
   Pushing changes to your repository will trigger the deployment pipeline configured in your CI/CD system. This pipeline will automatically deploy the updated configuration to your Kubernetes cluster.
 
