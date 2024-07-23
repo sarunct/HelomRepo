@@ -1,6 +1,6 @@
-Generic Helm Chart for Python-based ML API
+Generic Helm Chart for Python-based ML API & Branching Strategy 
 
-This repository contains a generic Helm chart designed to deploy a Python-based Machine Learning (ML) API. The chart is configured to support three environments: development, staging, and production. This document provides step-by-step instructions on how ML engineers can reuse this chart for their own projects.
+This repository contains a generic Helm chart designed to deploy a Python-based Machine Learning (ML) API and the Branching Strategy. The chart is configured to support three environments: development, staging, and production. This document provides step-by-step instructions on how ML engineers can reuse this chart for their own projects.
 
 Chart Structure:
 
@@ -93,4 +93,34 @@ Chart Structure:
   How to access you cluster - 
   How to check the logs - 
 
+**Branching Strategy:**
 
+  To manage Helm charts repository, a clear and effective branching strategy is imporant to maintaining stability, promoting changes, and to support various environments. Here’s a recommended branching strategy for your 
+  Helm chart repository
+
+  master: This branch contains the stable, production version of the Helm chart. Changes are only merged into this master branch from release branch
+
+  release: This branch contains the stable, production-ready version of the Helm chart. Changes are only merged into this release branch after multiply stages testing and review.
+
+  develop: This branch is used for integrating feature developments and testing. It reflects the latest development work and is usually deployed to a staging environment for testing before merging into main.
+
+Environment-Specific Branches:
+
+  dev: This branch is dedicated to development-specific changes. It might be used to deploy to a development environment for initial testing and validation.
+    
+  staging: This branch is used for staging environment changes. It serves as a pre-production environment for final testing before merging into main.
+    
+  production: This branch, if used, should mirror the main branch and be used to manage production-specific configurations or fixes.
+
+Feature Branches:
+
+  feature/<feature-name>: Create a new branch for each feature or change you’re working on. These branches are based off of develop or the relevant environment branch, and are merged back into develop or the environment 
+  branch after the feature is complete and tested.
+  
+Release Branches:
+
+  release-<release version>: When preparing for a release, create the release branch from master . Use this branch for final testing, bug fixes, and document the change, This branch will be deployed to the production environment, Once the produciton validationg is compelted successfull and got confirmation form users merge the release brnach to the master branch.
+
+Hotfix Branches:
+
+  hotfix/<issue>: For urgent fixes that need to be applied to the production environment, create a hotfix branch from main. Once the hotfix is complete, merge it into main and develop (or the relevant environment branches).
